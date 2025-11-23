@@ -1,99 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="icon" type="image/png" href="assets/favicon.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gagana Texture and Design — Wall Finishes, Paints & Interiors</title>
+  <title>Gagana Texture and Designers — Wall Finishes, Paints & Exteriors</title>
   <meta name="description" content="Transform spaces with premium textures, wall finishes, waterproofing, and interior solutions by Gagana Texture and Design." />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magic/1.1.0/magic.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 </head>
 <body>
 
-  <div class="welcome-screen" id="welcomeScreen" role="dialog" aria-modal="true" aria-labelledby="welcome-heading">
-    <div class="welcome-bg"></div>
-    <div class="fireworks-container" id="fireworks"></div>
-    <div class="welcome-logo">
-      <img src="logo.png" alt="Gagana Texture and Design Logo">
-    </div>
-    <h1 class="welcome-text" id="welcome-heading">
-  <span class="headline-text-wrapper" data-text="THE GRAND LAUNCH IS HERE!"></span><br>
-  
-  <span class="welcome-domain-text">
-    <span class="domain-text-wrapper" data-text="www.gaganatextureanddesigners.com"></span> successfully launched.
-  </span>
-  <br>
-  Welcome to the future of **Premium Wall Finishes**.
-</h1>
+  <div class="video-welcome-screen" id="welcomeVideoScreen">
+    <video id="welcomeVideo" autoplay muted playsinline>
+      <source src="assets/welcome-video.mp4" type="video/mp4">
+      Your browser does does not support the video tag.
+    </video>
   </div>
-
   <header class="site-header">
     <div class="container header-inner">
-      <a class="logo" href="#home">
-        <img src="assets\logo.jpeg" alt="Gagana Texture and Design logo" />
+     <a class="logo" href="index.html">
+        <img src="assets/logo.jpeg" alt="Gagana Texture and Design" />
       </a>
-      <nav class="nav" aria-label="Main navigation">
+      <nav class="nav">
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="designs.html">Designs</a></li>
+          <li><a href="materials.html">Materials</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
           </ul>
       </nav>
-      <button class="btn btn-primary header-cta">Book free site visit</button>
-      <button class="menu-toggle" aria-label="Open navigation menu">☰</button>
+      <a href="contact.html" class="btn btn-primary header-cta">Book free site visit</a>
+      <button class="menu-toggle" aria-label="Open menu">☰</button>
     </div>
   </header>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="carousel" id="heroCarousel" role="region" aria-label="Hero Image Carousel" aria-live="polite">
-        
-        <div class="slide active" role="group" aria-roledescription="slide" aria-label="1 of 4" style="background-image:url('hero1.jpg')">
-          <div class="slide-content container">
-           
-            
-        </div></div>
-
-        <div class="slide" role="group" aria-roledescription="slide" aria-label="2 of 4" style="background-image:url('hero2.jpg')">
-          <div class="slide-content container">
-           
-            
-          </div>
-        </div>
-        
-        <div class="slide" role="group" aria-roledescription="slide" aria-label="3 of 5" style="background-image:url('hero3.jpg')">
-          <div class="slide-content container">
-                      
-          </div>
-        </div>
-
-        <div class="slide" role="group" aria-roledescription="slide" aria-label="4 of 5" style="background-image:url('hero4.jpg')">
-          <div class="slide-content container">
-                      
-          </div>
-        </div>
-<div class="slide" role="group" aria-roledescription="slide" aria-label="5 of 5" style="background-image:url('images/hero5.jpg')">
-          <div class="slide-content container">
-               
-          </div>
-        </div>
-
-
-        <button class="carousel-btn prev" aria-controls="heroCarousel" aria-label="Previous slide">‹</button>
-        <button class="carousel-btn next" aria-controls="heroCarousel" aria-label="Next slide">›</button>
-        <div class="dots" role="tablist" aria-label="Select slide"></div>
+  <section class="hero">
+    <div class="carousel" id="heroCarousel">
+      <div class="slide active" style="background-image:url('assets/hero1.jpg')"></div>
+      <div class="slide" style="background-image:url('assets/hero2.jpg')"></div>
+      <div class="slide" style="background-image:url('assets/hero3.jpg')"></div>
+      <div class="slide" style="background-image:url('assets/Hero4.jpg')"></div>
+      <div class="slide" style="background-image:url('assets/Hero5.jpg')"></div>
+      <button class="carousel-btn prev" aria-label="Previous slide">‹</button>
+      <button class="carousel-btn next" aria-label="Next slide">›</button>
+      <div class="dots"></div>
+    </div>
+  </section>
+  
+<section class="intro-section">
+    <div class="container">
+      <h2>Transforming Spaces with Texture and Design</h2>
+      <p class="lead-text">Gagana Texture and Design brings you premium, long-lasting, and aesthetic wall finishes. We specialize in transforming ordinary walls into architectural masterpieces with specialized textures, high-end paints, and decorative solutions.</p>
+      <div class="actions">
+        <a href="designs.html" class="btn btn-primary">View Our Portfolio</a>
+        <a href="about.html" class="btn btn-secondary">Our Story</a>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+  
+  <section class="services-section">
+    <div class="container">
+      <h2>Our Core Expertise</h2>
+      <div class="services-grid">
+  
+  <div class="service-card">
+    <i class="fas fa-paint-roller"></i>
+    <h3>Signature Wall Textures</h3>
+    <p>We are experts in premium finishes including <strong>Royal Play designing</strong>, sophisticated <strong>VIP texture</strong> applications, and all types of home <strong>interior and exterior texture work</strong>.</p>
+  </div>
+  
+  <div class="service-card">
+    <i class="fas fa-magic"></i>
+    <h3>Decorative Wall Finishes</h3>
+    <p>Transform your walls with artistic flair. Our services include intricate <strong>Stencils</strong> and high-quality, modern <strong>Wallpaper designing</strong> for unique decorative accents.</p>
+  </div>
+  
+  <div class="service-card">
+    <i class="fas fa-house-chimney"></i>
+    <h3>Comprehensive Home Solutions</h3>
+    <p>We provide a holistic approach to home beautification, encompassing all elements of <strong>interior and exterior wall finishes</strong> for a seamless, stunning result.</p>
+  </div>
+  
+  <div class="service-card">
+    <i class="fas fa-map-marked-alt"></i>
+    <h3>Nationwide Project Coverage</h3>
+    <p>Our commitment to quality extends across borders. We execute projects <strong>All over India</strong>, bringing Gagana Texture and Design's expertise directly to your location.</p>
+  </div>
+  
+</div>
+    </div>
+  </section>
+  
+  <section class="usp-section">
+    <div class="container usp-grid">
+        
+        <div class="usp-text">
+            <h2>Why Gagana Texture and Design?</h2>
+            <p>Our commitment goes beyond paint; it’s about a complete transformation experience. We guarantee quality, transparency, and timely project delivery.</p>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> 10+ Years of Industry Experience</li>
+                <li><i class="fas fa-check-circle"></i> Free Site Consultation & Quote</li>
+                <li><i class="fas fa-check-circle"></i> 5-Year Service Warranty on Textures</li>
+                <li><i class="fas fa-check-circle"></i> Certified and Trained Application Teams</li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary">Get a Free Quote</a>
+        </div>
+        
+        <div class="usp-image">
+            <img src="assets/hero12.jpeg" alt="Experienced applicator working on a wall texture" loading="lazy" />
+        </div>
+        
+    </div>
+  </section>
 
+  <section class="home-cta-banner">
+    <div class="container cta-inner">
+        <h3>Ready to Transform Your Space?</h3>
+        <p>Book a free site inspection in Bangalore and let our experts guide you to the perfect finish.</p>
+        <a href="contact.html" class="btn btn-secondary">Book Free Site Visit</a>
+    </div>
+  </section>
+  
+<footer class="site-footer">
+    <div class="container footer-grid">
+      
+      <div class="footer-info">
+        <h3>Gagana Texture and Designers</h3>
+        <p>Transforming spaces with premium wall finishes, specialized textures, and innovative interior solutions.</p>
+        
+        <div class="social-links">
+          <a href="https://www.instagram.com/gagana_texture_designer_12?igsh=ODd3NWZzZ3hjM290" target="_blank" aria-label="Instagram Profile">
+            <i class="fab fa-instagram"></i>
+          </a>
+          
+          <a href="https://www.facebook.com/share/17GE1zkNHs/" target="_blank" aria-label="Facebook Page">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          
+          <a href="https://youtube.com/@gaganatexturedesigner?si=7quec5Vo4521_DOY" target="_blank" aria-label="YouTube Channel">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+        <p class="copyright">
+    &copy; <span id="current-year"></span> Gagana Texture and Design. <br>
+    All rights reserved. | <a href="privacy.html" style="color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9em;">Privacy Policy</a>
+</p>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="designs.html">Designs</a></li>
+          <li><a href="materials.html">Materials</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <p><strong>Call:</strong> +91 8105939912</p>
+        <p><strong>Email:</strong> swamy10028@gmail.com</p>
+        <p><strong>Address:</strong>Kadirenahalli, Bengaluru, Karnataka, India</p>
+      </div>
+
+    </div>
+  </footer>
+   
   <script src="Script.js"></script>
 </body>
-
 </html>
-
-
-
-
-
-
