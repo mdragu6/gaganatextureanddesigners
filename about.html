@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us – Gagana Texture & Designers</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+  <style>
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeUp { animation: fadeUp 0.8s ease-out forwards; }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    .animate-fadeIn { animation: fadeIn 1s ease-out forwards; }
+/* --- Global Styles: Blue Gradient Background (Retained) --- */
+.call-now-button {
+  /* Fixed Position and Base Styling */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  border-radius: 50px;
+  
+  /* Set base size for desktop/larger screens */
+  padding: 15px 25px;
+  font-size: 20px;
+
+  /* **NEW:** Blue Gradient Background */
+  background: linear-gradient(135deg, #2196F3, #0D47A1); /* Bright to deep blue gradient */
+  
+  /* Apply the Animation */
+  animation: pulse-zoom 1.5s infinite alternate;
+}
+
+/* --- Mobile Specific Styles (Media Query) --- */
+@media (max-width: 600px) {
+  .call-now-button {
+    /* Reduced size for mobile screens */
+    padding: 10px 18px; 
+    font-size: 16px; 
+    bottom: 15px;
+    right: 15px;
+    animation-duration: 1.8s;
+  }
+}
+
+/* --- Icon Spacing --- */
+.call-now-button .icon {
+  margin-right: 10px;
+}
+
+/* --- The Animation Definition (@keyframes) --- */
+@keyframes pulse-zoom {
+  0% { 
+    transform: scale(1); 
+    /* Shadow glow matches the lighter blue */
+    box-shadow: 0 4px 15px rgba(33, 150, 243, 0.6); 
+  }
+  
+  100% { 
+    transform: scale(1.05); /* Zooming effect */
+    /* Stronger, more intense blue shadow glow */
+    box-shadow: 0 0 20px rgba(33, 150, 243, 0.9), 0 0 40px rgba(33, 150, 243, 0.7); 
+  }
+}
+    /* ======================================= */
+    /* UNIFIED HEADER STYLES FROM INDEX.HTML   */
+    /* ======================================= */
+    
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 64px; 
+        background: #0f2e26; /* Dark background */
+        color: #fff;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        z-index: 1000;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    }
+    .header-inner{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        width:100%;
+        max-width: 1200px; 
+        margin: auto; 
+    }
+
+    /* Brand Rotation Styling */
+    .brand-container {
+        font-weight: 700;
+        transition: opacity 0.5s ease-in-out; 
+        display: flex; 
+        align-items: center;
+        font-size: 16px; 
+    }
+
+    .nav ul {
+        display: flex; /* Desktop layout */
+        gap: 18px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav a {
+        color: #222222;
+        font-weight: 600;
+        text-decoration: none;
+        padding: 10px 18px;
+        border-radius: 6px;
+        transition: 0.25s ease;
+    }
+
+    /* Active Link Style */
+    .nav a.active-link {
+        background: rgba(255, 255, 255, 0.12);
+        color: #b6fff2; /* Highlight color */
+    }
+
+    .nav a:not(.active-link):hover {
+        background: rgba(255, 255, 255, 0.12);
+    }
+
+    .menu-toggle {
+        display: none;
+        color: white;
+        font-size: 30px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    @media(min-width:769px) { 
+        .nav {
+            display: block;
+        }
+    }
+
+
+    /* MOBILE NAV STYLES (Glassmorphism + Fixed Margins/Gaps) */
+    @media(max-width:768px) {
+        .menu-toggle {
+            display: block;
+        }
+        
+        .nav {
+            display: none;
+            position: absolute;
+            top: 64px; /* Matches header height */
+            left: 0;
+            width: 100%;
+        }
+
+        .nav.show {
+            display: block !important; /* Container */
+            /* Glassmorphism/Positioning */
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(14px) saturate(180%);
+            -webkit-backdrop-filter: blur(14px) saturate(180%);
+            padding: 22px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 20px rgba(025, 50, 40, 0.25);
+            z-index: 9999;
+        } 
+
+        /* Style the UL to be the column flex container */
+        .nav.show ul {
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* Correct vertical gap between list items */
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        } 
+
+        /* Ensure LI elements take full width and have no extra space */
+        .nav.show ul li {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Style the A links */
+        .nav.show a{
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.12);
+            font-size: 17px;
+            font-weight: 600;
+            color: #fff;
+            transition: 0.25s ease;
+        }
+        
+        /* Hover style for links */
+        .nav.show a:hover {
+            background: rgba(255, 255, 255, 0.25) !important;
+            transform: translateX(6px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+  <header>
+    <div class="max-w-7xl mx-auto flex items-center justify-between w-full h-full px-4">
+      <div class="brand-container" id="rotating-brand">
+        Gagana Texture & Designers
+      </div>
+      
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="designs.html">Designs</a></li>
+          <li><a href="materials.html">Materials</a></li>
+          <li><a href="about.html" class="active-link">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle">☰</button>
+    </div>
+  </header>
+
+
+  <section class="max-w-7xl mx-auto px-6 pt-20 pb-10 lg:pt-24 lg:pb-16">
+  <div class="grid lg:grid-cols-2 gap-10 items-center">
+
+    <div class="animate-fadeUp">
+      <h1 class="text-4xl lg:text-5xl font-bold text-purple-700 leading-tight mb-4">
+        Beyond Paint: <br/> We Create Legacy Finishes
+      </h1>
+
+      <p class="text-lg text-gray-700 leading-relaxed mb-4">
+        Gagana Texture and Design is founded on a single, powerful commitment:
+        to deliver unparalleled <strong>quality</strong> and
+        <strong>innovation</strong> in every wall finish we create.
+      </p>
+
+      <p class="text-gray-700 leading-relaxed">
+        Based in Bangalore, we specialize in high-end texture application,
+        artistic wall finishes, and comprehensive waterproofing solutions.
+        Our team blends traditional craftsmanship with modern materials and
+        technology to ensure results that are not just beautiful, but built to last.
+      </p>
+    </div>
+
+    <div class="flex justify-center animate-fadeIn">
+      <img 
+        src="assets/hero12.jpeg"
+        class="rounded-xl shadow-xl w-full max-w-md lg:max-w-full object-cover"
+      />
+    </div>
+
+  </div>
+</section>
+
+
+ <section class="bg-white py-10 lg:py-16">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <h2 class="text-3xl font-bold text-purple-700 text-center mb-10 lg:mb-14">
+      Our Core Values
+    </h2>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+
+      <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-xl transition">
+        <i class="fas fa-hammer text-3xl text-purple-700 mb-4"></i>
+        <h3 class="font-semibold text-lg mb-2">Uncompromising Quality</h3>
+        <p class="text-gray-700 text-sm leading-relaxed">
+          We use only <strong>Birla, A1, and Lenova</strong> materials and 
+          professional-grade tools to ensure strength, finish, and long life.
+        </p>
+      </div>
+
+      <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-xl transition">
+        <i class="fas fa-lightbulb text-3xl text-purple-700 mb-4"></i>
+        <h3 class="font-semibold text-lg mb-2">Creative Innovation</h3>
+        <p class="text-gray-700 text-sm leading-relaxed">
+          From modern roller coats to classic stencil textures, we offer creative
+          and personalized art for every project.
+        </p>
+      </div>
+
+      <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-xl transition">
+        <i class="fas fa-handshake text-3xl text-purple-700 mb-4"></i>
+        <h3 class="font-semibold text-lg mb-2">Client-Centric Service</h3>
+        <p class="text-gray-700 text-sm leading-relaxed">
+          We begin with a free site visit and consultation to perfect your vision
+          within your budget.
+        </p>
+      </div>
+
+      <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-xl transition">
+        <i class="fas fa-leaf text-3xl text-purple-700 mb-4"></i>
+        <h3 class="font-semibold text-lg mb-2">Sustainable Practice</h3>
+        <p class="text-gray-700 text-sm leading-relaxed">
+          We emphasize eco-friendly materials and low-VOC products for safer,
+          cleaner interiors.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-12">
+  <a href="contact.html"
+     class="inline-flex items-center justify-center px-8 py-3 bg-purple-700 
+            text-white rounded-lg shadow-lg text-lg font-semibold 
+            whitespace-nowrap hover:bg-purple-800 transition">
+    Start Your Project Today
+  </a>
+</div>
+
+
+  </div>
+</section>
+<a href="tel:+918105939912" class="call-now-button">
+  <span class="icon">📞</span> CALL NOW
+</a>
+
+  <footer class="bg-[#0f2e26] text-white py-10">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+
+      <div>
+        <h3 class="text-xl font-semibold">Gagana Texture and Designers</h3>
+        <p class="text-gray-300 mt-2">
+          Transforming spaces with premium wall finishes, textures, and innovative interior solutions.
+        </p>
+
+        <div class="flex gap-4 mt-4">
+          <a href="https://www.instagram.com/gagana_texture_designer_12?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="text-xl"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/share/17GE1zkNHs/" target="_blank" class="text-xl"><i class="fab fa-facebook"></i></a>
+          <a href="https://youtu.be/cftxAgXMSeA?si=Ia8P9AbbQHSFblgl" target="_blank" class="text-xl"><i class="fab fa-youtube"></i></a>
+        </div>
+
+        <p class="text-gray-400 text-sm mt-4">
+          © <span id="year"></span> Gagana Texture & Designers. All rights reserved.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-lg font-semibold mb-2">Quick Links</h4>
+        <ul class="space-y-2 text-gray-300">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="designs.html">Designs</a></li>
+          <li><a href="materials.html">Materials</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-lg font-semibold mb-2">Contact Us</h4>
+        <p class="text-gray-300"><strong>Phone:</strong> +91 8105939912</p>
+        <p class="text-gray-300"><strong>Email:</strong> swamy10028@gmail.com</p>
+        <p class="text-gray-300"><strong>Address:</strong> Bengaluru, Karnataka, India</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").innerText = new Date().getFullYear();
+
+    // Mobile Menu Toggle
+    const menuBtn = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+    menuBtn.addEventListener('click', () => nav.classList.toggle('show'));
+
+    // Header Brand Rotation (Logo <-> Text)
+    const brandElement = document.getElementById('rotating-brand');
+    const textContent = 'Gagana Texture & Designers';
+    // Using assets/logo.jpeg based on usage in existing about.html and other files.
+    const logoContent = '<img src="assets/logo.jpeg" style="height:44px; width:44px; vertical-align: middle; margin-top: -4px; object-fit: contain;" alt="Gagana Logo" />';
+
+    let isLogoShowing = false; // Initial state is Text (as set in HTML)
+
+    function rotateBrand() {
+      // 1. Fade Out
+      brandElement.style.opacity = '0';
+
+      setTimeout(() => {
+        // 2. Swap Content
+        if (isLogoShowing) {
+          // Switch to Text
+          brandElement.innerHTML = textContent;
+        } else {
+          // Switch to Logo
+          brandElement.innerHTML = logoContent;
+        }
+
+        // Toggle state
+        isLogoShowing = !isLogoShowing;
+
+        // 3. Fade In
+        brandElement.style.opacity = '1';
+      }, 500); // Wait for 0.5s fade-out (must match CSS transition time)
+    }
+
+    // Initial state is Text (shows for 5 seconds)
+    // Start the continuous switching after the first 5 seconds
+    setTimeout(function() {
+      rotateBrand(); // First transition (Text -> Logo)
+      // Then set the interval for every 5 seconds (5000ms)
+      setInterval(rotateBrand, 5000);
+    }, 5000);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact – Gagana Texture & Designers</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+  />
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const mobileNav = document.getElementById("mobileNav");
+
+      // 1. UPDATED JAVASCRIPT: Toggle the new custom class 'mobile-nav-open'
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileNav.classList.toggle("mobile-nav-open");
+      });
+
+      // ==========================================================
+      // Header Brand Rotation (Logo <-> Text)
+      // ==========================================================
+      const brandElement = document.getElementById('rotating-brand');
+      
+      const textState = '<span class="text-x2 font-bold">Gagana Texture & Designers</span>';
+      const logoState = '<img src="assets/logo.jpeg" class="h-10 w-10 rounded-full" alt="Gagana Logo" />';
+
+      let isLogoShowing = true; 
+
+      function rotateBrand() {
+          brandElement.style.opacity = '0';
+
+          setTimeout(() => {
+              if (isLogoShowing) {
+                  brandElement.innerHTML = textState;
+              } else {
+                  brandElement.innerHTML = logoState;
+              }
+
+              isLogoShowing = !isLogoShowing;
+              brandElement.style.opacity = '1';
+          }, 500);
+      }
+
+      setTimeout(function() {
+          rotateBrand(); 
+          setInterval(rotateBrand, 5000);
+      }, 5000);
+    });
+  </script>
+
+  <style>
+/* ============================================================== */
+/* 2. INJECTED CSS FROM index.html (Mobile Menu Appearance) */
+/* ============================================================== */
+
+/* The open state for the mobile menu */
+#mobileNav.mobile-nav-open {
+  /* Override default hidden state */
+  display: flex !important;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  
+  /* Glass/Blur Effect from index.html */
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  
+  /* Positioning - must be absolute within the fixed header */
+  position: absolute;
+  top: 68px; /* Header height + padding */
+  left: 0;
+  width: 100%;
+  padding: 22px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  z-index: 9999;
+}
+
+/* Styling for links inside the open mobile nav */
+#mobileNav.mobile-nav-open a {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 17px;
+  font-weight: 600;
+  color: #fff;
+  transition: 0.25s ease;
+}
+
+/* Hover style for links */
+#mobileNav.mobile-nav-open a:hover {
+  background: rgba(255, 255, 255, 0.25) !important;
+  transform: translateX(6px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Existing Styles */
+    @keyframes slideDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-slideDown {
+      animation: slideDown 0.3s ease-out forwards;
+    }
+/* --- Global Styles: Blue Gradient Background --- */
+.call-now-button {
+  /* Fixed Position and Base Styling */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  border-radius: 50px;
+  
+  /* Set base size for desktop/larger screens */
+  padding: 15px 25px;
+  font-size: 20px;
+
+  /* **NEW:** Blue Gradient Background */
+  background: linear-gradient(135deg, #2196F3, #0D47A1); /* Bright to deep blue gradient */
+  
+  /* Apply the Animation */
+  animation: pulse-zoom 1.5s infinite alternate;
+}
+
+/* --- Mobile Specific Styles (Media Query) --- */
+@media (max-width: 600px) {
+  .call-now-button {
+    /* Reduced size for mobile screens */
+    padding: 10px 18px; 
+    font-size: 16px; 
+    bottom: 15px;
+    right: 15px;
+    animation-duration: 1.8s;
+  }
+}
+
+/* --- Icon Spacing --- */
+.call-now-button .icon {
+  margin-right: 10px;
+}
+
+/* --- The Animation Definition (@keyframes) --- */
+@keyframes pulse-zoom {
+  0% { 
+    transform: scale(1); 
+    /* Shadow glow matches the lighter blue */
+    box-shadow: 0 4px 15px rgba(33, 150, 243, 0.6); 
+  }
+  
+  100% { 
+    transform: scale(1.05); /* Zooming effect */
+    /* Stronger, more intense blue shadow glow */
+    box-shadow: 0 0 20px rgba(33, 150, 243, 0.9), 0 0 40px rgba(33, 150, 243, 0.7); 
+  }
+}
+  </style>
+</head>
+
+<body class="bg-background text-foreground">
+
+  <header class="bg-[#0f2e26] text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
+
+      <div id="rotating-brand" style="transition: opacity 0.5s ease-in-out; display: flex; align-items: center; min-height: 40px;">
+        <img src="assets/logo.jpeg" class="h-10 w-10 rounded-full" alt="Gagana Logo" />
+      </div>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="index.html" class="hover:text-gray-300">Home</a>
+        <a href="designs.html" class="hover:text-gray-300">Designs</a>
+        <a href="materials.html" class="hover:text-gray-300">Materials</a>
+        <a href="about.html" class="hover:text-gray-300">About</a>
+        <a href="contact.html" class="text-green-300 font-semibold">Contact</a>
+      </nav>
+
+      <button id="mobileMenuBtn" class="md:hidden text-2xl">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+    <nav
+      id="mobileNav"
+      class="hidden"
+      style="transition: 0.3s ease-out;"
+    >
+      <a href="index.html">Home</a>
+      <a href="designs.html">Designs</a>
+      <a href="materials.html">Materials</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 py-12">
+    <div class="grid lg:grid-cols-2 gap-8">
+
+      <div class="bg-white shadow-lg p-6 rounded-xl">
+        <h2 class="text-2xl font-bold text-purple-700 mb-4">Get in Touch</h2>
+
+        <div class="space-y-6">
+
+          <div class="flex items-start gap-4">
+            <i class="fa-solid fa-phone text-purple-700 text-xl"></i>
+            <div>
+              <h3 class="font-semibold">Phone</h3>
+              <a href="tel:+918105939912" class="text-purple-700 font-medium">
+                +91 8105939912
+              </a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <i class="fa-solid fa-envelope text-purple-700 text-xl"></i>
+            <div>
+              <h3 class="font-semibold">Email</h3>
+              <a href="mailto:swamy10028@gmail.com" class="text-purple-700 font-medium">
+                swamy10028@gmail.com
+              </a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <i class="fa-solid fa-location-dot text-purple-700 text-xl"></i>
+            <div>
+              <h3 class="font-semibold">Head Office (Bangalore)</h3>
+              <p class="text-sm text-gray-600">
+                #4, Shop_No-2, Maheshwaramma Temple Road,<br />
+                Kadirenahalli, BSK 2nd Stage,<br />
+                Bengaluru – 560070
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <i class="fa-solid fa-location-dot text-purple-700 text-xl"></i>
+            <div>
+              <h3 class="font-semibold">Branch Office (Mysore)</h3>
+              <p class="text-sm text-gray-600">
+                Muthatti, T-Narsipura,<br />
+                Mysore – 571110
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="bg-white shadow-lg p-6 rounded-xl">
+        <h2 class="text-2xl font-bold text-purple-700 mb-4">Send Us a Message</h2>
+
+        <form id="contact-form" class="space-y-4">
+          <div>
+            <label class="font-semibold text-sm">Your Name</label>
+            <input type="text" class="w-full p-3 rounded-md border border-gray-300" required />
+          </div>
+
+          <div>
+            <label class="font-semibold text-sm">Your Email</label>
+            <input type="email" class="w-full p-3 rounded-md border border-gray-300" required />
+          </div>
+
+          <div>
+            <label class="font-semibold text-sm">Phone Number</label>
+            <input type="tel" class="w-full p-3 rounded-md border border-gray-300" required />
+          </div>
+
+          <div>
+            <label class="font-semibold text-sm">Service Interested</label>
+            <select class="w-full p-3 rounded-md border border-gray-300" required>
+              <option value="">- Select -</option>
+              <option>Free Site Visit</option>
+              <option>Texture Work</option>
+              <option>Waterproofing</option>
+              <option>General Inquiry</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="font-semibold text-sm">Your Message</label>
+            <textarea rows="4" class="w-full p-3 rounded-md border border-gray-300" required></textarea>
+          </div>
+
+          <button class="w-full bg-purple-700 text-white py-3 rounded-md font-semibold">
+            Submit
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+<div class="mt-12 px-4">
+  <h2 class="text-3xl font-bold text-purple-700 text-center mb-10 animate-fadeIn">
+    Our Office Locations
+  </h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+    <div
+      class="bg-white border border-gray-300 shadow-2xl overflow-hidden flex flex-col 
+             transition-all duration-500 
+             hover:-translate-y-2 hover:scale-[1.02]
+             hover:shadow-[0_25px_50px_rgba(0,0,0,0.35)]
+             hover:border-purple-500 
+             animate-floatSlow">
+
+      <h3 class="text-xl font-extrabold text-purple-700 p-4 border-b border-gray-300 text-center 
+                 animate-slideDown">
+        Bangalore Office
+      </h3>
+
+      <div class="flex-1">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.8559874483667!2d77.55984487469202!3d12.916976087393389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15633a502f4d%3A0x93da36003f57ee0b!2sGAGANA%20TEXTURE%20AND%20DESIGNERS!5e0!3m2!1sen!2sin!4v1764416395410!5m2!1sen!2sin"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          class="h-[380px] md:h-[450px]"
+        ></iframe>
+      </div>
+    </div>
+
+    <div
+      class="bg-white border border-gray-300 shadow-2xl overflow-hidden flex flex-col 
+             transition-all duration-500 
+             hover:-translate-y-2 hover:scale-[1.02]
+             hover:shadow-[0_25px_50px_rgba(0,0,0,0.35)]
+             hover:border-purple-500
+             animate-floatSlow">
+
+      <h3 class="text-xl font-extrabold text-purple-700 p-4 border-b border-gray-300 text-center 
+                 animate-slideDown">
+        Mysore Branch
+      </h3>
+
+      <div class="flex-1">
+       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3898.828518339629!2d76.86703257468005!3d12.259881187993937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baf13ba38338707%3A0xa3ff0b82852bc7a6!2sGAGANA%20TEXTURE%20AND%20DESIGNERS%20UNIT!5e0!3m2!1sen!2sin!4v1764416591925!5m2!1sen!2sin"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          class="h-[380px] md:h-[450px]"
+        ></iframe>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fadeIn { animation: fadeIn 1s ease-out forwards; }
+
+  @keyframes floatSlow {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+  }
+  .animate-floatSlow { animation: floatSlow 6s ease-in-out infinite; }
+  
+  /* OVERWRITE slideDown animation for maps section */
+  @keyframes slideDown {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .animate-slideDown { animation: slideDown 0.8s ease-out; }
+</style>
+
+  </main>
+<a href="https://maps.app.goo.gl/BU3EjkqoRBnAQBx9A" class="call-now-button" target="_blank" 
+  rel="noopener noreferrer">
+  <span class="icon">📍</span> VISIT US
+</a>
+
+  <footer class="bg-[#0f2e26] text-white py-10 mt-12">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-10 px-6">
+
+      <div>
+        <h3 class="text-xl font-semibold">Gagana Texture and Designers</h3>
+        <p class="text-gray-300 mt-2">
+          Transform your walls with premium textures and designs.
+        </p>
+
+        <div class="flex gap-4 mt-4">
+          <a class="text-xl" href="https://www.instagram.com/gagana_texture_designer_12?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fa-brands fa-instagram"></i></a>
+          <a class="text-xl" href="https://www.facebook.com/share/17GE1zkNHs/"><i class="fa-brands fa-facebook"></i></a>
+          <a class="text-xl" href="https://youtu.be/cftxAgXMSeA?si=Ia8P9AbbQHSFblgl"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-lg font-semibold">Quick Links</h4>
+        <ul class="mt-2 space-y-2 text-gray-300">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="designs.html">Designs</a></li>
+          <li><a href="materials.html">Materials</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-lg font-semibold">Contact Info</h4>
+        <p class="mt-2 text-gray-300"><b>Phone:</b> +91 8105939912</p>
+        <p class="text-gray-300"><b>Email:</b> swamy10028@gmail.com</p>
+        <p class="text-gray-300">
+          <b>Address:</b> Bengaluru & Mysore, India
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -2,178 +2,554 @@
 <html lang="en">
 <head>
 <link rel="icon" type="image/png" href="assets/favicon.png">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gagana Texture and Designers — Wall Finishes, Paints & Exteriors</title>
-  <meta name="description" content="Transform spaces with premium textures, wall finishes, waterproofing, and interior solutions by Gagana Texture and Design." />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magic/1.1.0/magic.min.css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Train Slider Preview — Gagana</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;font-family:Arial, sans-serif}
+  body{background:#eef2f3;color:#111}
+  header{position:fixed;top:0;left:0;width:100%;height:64px;background:#0f2e26;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 20px;z-index:1000}
+  /* MODIFIED: Added transition for smooth fade */
+  header .brand{
+    font-weight:700;
+    transition: opacity 0.5s ease-in-out;
+  }
+  header nav{
+  display:flex;
+  gap:18px;
+}
+/* MOBILE NAV SHOW */
+header nav.show{
+  display:flex !important;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:10px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(14px) saturate(180%);
+  -webkit-backdrop-filter:blur(14px) saturate(180%);
+  position:absolute;
+  top:64px;
+  left:0;
+  width:100%;
+  padding:22px 20px;
+  border-bottom:1px solid rgba(255,255,255,0.18);
+  box-shadow:0 8px 20px rgba(0,0,0,0.25);
+  z-index:9999;
+}
+header nav.show a{
+  width:100%;
+  padding:14px 18px;
+  border-radius:10px;
+  background:rgba(255,255,255,0.12);
+  font-size:17px;
+  font-weight:600;
+  color:#fff;
+  transition:0.25s ease;
+}
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+header nav.show a:hover::after{
+  width:220%;
+  height:220%;
+  opacity:0.35;
+}
+header nav.show a:hover{
+  background:rgba(255,255,255,0.25) !important;
+  transform:translateX(6px);
+  box-shadow:0 4px 12px rgba(0,0,0,0.25);
+}
+header nav.show a:hover{
+  background:rgba(255,255,255,0.35);
+  transform:translateX(6px);
+  box-shadow:0 4px 12px rgba(0,0,0,0.25);
+}
+header nav.show a{
+  width:100%;
+  padding:12px 18px;
+  border-radius:8px;
+  background:rgba(255,255,255,0.06);
+  font-size:16px;
+  font-weight:600;
+}
+header nav.show a:hover{
+  background:rgba(255,255,255,0.18);
+}display:flex;gap:18px}
+  header nav a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  padding:10px 18px;
+  border-radius:6px;
+  transition:0.25s ease;
+}
+header nav a:hover{
+  background:rgba(255,255,255,0.12);
+}
+  #menu-btn{display:none}
+  @media(max-width:768px){header nav{display:none}#menu-btn{display:block;color:#fff}}
+
+  main{padding-top:84px}
+
+  /* Hero slider */
+  /* Hero slider container */
+.hero-slider {
+  position: relative;
+   aspect-ratio: 1280 / 520;
+  height: auto;/* matches your original image height */
+  overflow: hidden; 
+}
+
+
+
+
+/* Slides */
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;      /* Fills the slider perfectly */
+  background-position: center; /* Centers important part of image */
+  background-repeat: no-repeat;
+  opacity: 0;
+
+  transition: opacity 0.8s ease-in-out;
+}
+
+/* Show the first slide by default */
+.hero-slide.active {
+  opacity: 1;
+}
+
+
+  /* Train sections */
+  .train-section{
+  width:100% !important;position:relative;height:260px;margin:24px auto;width:100%;background:#fff;border-radius:8px;overflow:visible}
+  .train-track{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  height:140px;
+  background:url('https://i.imgur.com/v7H0C6F.png') repeat-x; /* realistic track */
+  background-size:contain;
+  z-index:1;
+}
+
+  .train-coach{position:absolute;left:-40%;bottom:0;width:60%;height:120px;display:flex;gap:0;align-items:flex-end;z-index:3;pointer-events:none}
+  .coach-card{flex:0 0 33.333%;height:100px;background-size:cover;background-position:center}
+
+  /* train opposite */
+  .train-coach.rev{left:auto;right:-40%;flex-direction:row-reverse}
+
+  /* movement */
+  .move-right{animation:moveRight 10s linear infinite}
+  .move-left{animation:moveLeft 10s linear infinite}
+  @keyframes moveRight{
+  0%{transform:translateX(-150vw);}  /* start far left */
+  50%{transform:translateX(0);}       /* centered */
+  100%{transform:translateX(150vw);}  /* exit far right */
+}50%{transform:translateX(0)}100%{transform:translateX(120%)}}
+  @keyframes moveLeft{
+  0%{transform:translateX(150vw);}   /* start far right */
+  50%{transform:translateX(0);}       /* centered */
+  100%{transform:translateX(-150vw);} /* exit far left */
+}50%{transform:translateX(0)}100%{transform:translateX(-120%)}}
+
+  /* mask effect: designs printed on coach body */
+  .coach-mask{position:relative;width:100%;height:100%;overflow:hidden}
+  .coach-mask .inner{display:flex;height:100%;animation:innerMove 9s linear infinite}
+  .coach-mask img{width:100%;height:100%;object-fit:contain}
+  @keyframes innerMove{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+
+  /* load more button */
+  .btn-row{display:flex;justify-content:center;margin-top:8px}
+  .btn{background:#0f2e26;color:#fff;padding:10px 18px;border-radius:8px;border:none;cursor:pointer}
+
+  /* smoke + wheels decorations */
+  .smoke{position:absolute;width:18px;height:18px;background:rgba(255,255,255,0.85);border-radius:50%;top:-30px;left:60px;animation:smokeUp 3s infinite ease-out;z-index:4}
+  .smoke:nth-child(2){left:78px;animation-delay:.5s}
+  .smoke:nth-child(3){left:96px;animation-delay:1s}
+  @keyframes smokeUp{0%{transform:translateY(0) scale(1);opacity:0.9}100%{transform:translateY(-80px) scale(2);opacity:0}}
+
+  /* responsive tweak */
+  @media(max-width:900px){.train-coach{left:-60%;width:80%}.train-coach.rev{right:-60%}}
+  @media (max-width: 600px) {
+
+  .hero-slider {
+    height: 360px !important;   /* Increased height for better visibility */
+  }
+
+  .hero-slide {
+    background-size: contain !important;
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+    background-color: #000;      /* optional background filler */
+  }
+}
+@keyframes trainMotion {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+  50% { transform: translateX(-40%); }
+  100% { transform: translateX(200%); }
+}
+  50% { transform: translateX(0%); }
+  100% { transform: translateX(200%); }
+}
+
+/* RESPONSIVE FIXES */
+@media(max-width:1024px){
+  .fake-train-slider{height:130px !important;}
+  .fake-train-slider img{
+  height:160px !important;
+  width:33.33% !important;
+  object-fit:contain;
+  border-radius:14px !important;
+  box-shadow:0 6px 18px rgba(0,0,0,0.25) !important;
+}
+}
+
+@media(max-width:768px){
+  .train-section{height:200px !important;}
+  .fake-train-slider{bottom:10px !important;height:110px !important;}
+  .fake-train-slider img{height:110px !important;width:33.33% !important;}
+}
+
+@media(max-width:600px){
+  .train-section{height:180px !important; border-radius:6px;}
+  .fake-train-slider{height:95px !important; bottom:8px !important;}
+  .fake-train-slider img{height:95px !important;width:33.33% !important;}
+  header{height:56px;}
+  main{padding-top:70px;}
+  .hero-slider{height:auto !important;}
+}
+
+@media(max-width:420px){
+  .fake-train-slider{height:80px !important;}
+  .fake-train-slider img{height:80px !important;}
+  .train-section{height:160px !important;}
+}
+
+@keyframes testimonialSlide{
+  0%{transform:translateX(0);} 
+  100%{transform:translateX(-50%);} 
+}
+/* Footer link hover */
+footer a{
+  transition:0.3s ease;
+}
+footer a:hover,
+footer a:active,
+footer a:focus{
+  color:#ffffff !important;
+  padding-left:6px;
+  text-shadow:0 0 8px rgba(255,255,255,0.4);
+  transform:scale(1.03);
+}
+footer a:hover{
+  color:#ffffff !important;
+  padding-left:6px;
+  text-shadow:0 0 8px rgba(255,255,255,0.4);
+}
+footer a.mobile-hover{
+  color:#ffffff !important;
+  padding-left:6px;
+  text-shadow:0 0 8px rgba(255,255,255,0.4);
+  transform:scale(1.03);
+}
+/* --- Global Styles: Blue Gradient Background --- */
+.call-now-button {
+  /* Fixed Position and Base Styling */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  border-radius: 50px;
+  
+  /* Set base size for desktop/larger screens */
+  padding: 15px 25px;
+  font-size: 20px;
+
+  /* **NEW:** Blue Gradient Background */
+  background: linear-gradient(135deg, #2196F3, #0D47A1); /* Bright to deep blue gradient */
+  
+  /* Apply the Animation */
+  animation: pulse-zoom 1.5s infinite alternate;
+}
+
+/* --- Mobile Specific Styles (Media Query) --- */
+@media (max-width: 600px) {
+  .call-now-button {
+    /* Reduced size for mobile screens */
+    padding: 10px 18px; 
+    font-size: 16px; 
+    bottom: 15px;
+    right: 15px;
+    animation-duration: 1.8s;
+  }
+}
+
+/* --- Icon Spacing --- */
+.call-now-button .icon {
+  margin-right: 10px;
+}
+
+/* --- The Animation Definition (@keyframes) --- */
+@keyframes pulse-zoom {
+  0% { 
+    transform: scale(1); 
+    /* Shadow glow matches the lighter blue */
+    box-shadow: 0 4px 15px rgba(33, 150, 243, 0.6); 
+  }
+  
+  100% { 
+    transform: scale(1.05); /* Zooming effect */
+    /* Stronger, more intense blue shadow glow */
+    box-shadow: 0 0 20px rgba(33, 150, 243, 0.9), 0 0 40px rgba(33, 150, 243, 0.7); 
+  }
+}
+</style>
 </head>
 <body>
 
-  <div class="video-welcome-screen" id="welcomeVideoScreen">
-    <video id="welcomeVideo" autoplay muted playsinline>
-      <source src="assets/welcome-video.mp4" type="video/mp4">
-      Your browser does does not support the video tag.
-    </video>
-  </div>
-  <header class="site-header">
-    <div class="container header-inner">
-     <a class="logo" href="index.html">
-        <img src="assets/logo.jpeg" alt="Gagana Texture and Design" />
-      </a>
-      <nav class="nav">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="designs.html">Designs</a></li>
-          <li><a href="materials.html">Materials</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-          </ul>
-      </nav>
-      <a href="contact.html" class="btn btn-primary header-cta">Book free site visit</a>
-      <button class="menu-toggle" aria-label="Open menu">☰</button>
-    </div>
-  </header>
+<header>
+  <div class="brand" id="rotating-brand">Gagana Texture & Designers</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="designs.html">Designs</a>
+    <a href="materials.html">Materials</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div id="menu-btn">☰</div>
+</header>
 
-  <section class="hero">
-    <div class="carousel" id="heroCarousel">
-      <div class="slide active" style="background-image:url('assets/Hero1.jpg')"></div>
-      <div class="slide" style="background-image:url('assets/Hero2.jpg')"></div>
-      <div class="slide" style="background-image:url('assets/Hero3.jpg')"></div>
-      <div class="slide" style="background-image:url('assets/Hero4.jpg')"></div>
-      <div class="slide" style="background-image:url('assets/Hero5.jpg')"></div>
-      <button class="carousel-btn prev" aria-label="Previous slide">‹</button>
-      <button class="carousel-btn next" aria-label="Next slide">›</button>
-      <div class="dots"></div>
-    </div>
-  </section>
-  
-<section class="intro-section">
-    <div class="container">
-      <h2>Transforming Spaces with Texture and Design</h2>
-      <p class="lead-text">Gagana Texture and Design brings you premium, long-lasting, and aesthetic wall finishes. We specialize in transforming ordinary walls into architectural masterpieces with specialized textures, high-end paints, and decorative solutions.</p>
-      <div class="actions">
-        <a href="designs.html" class="btn btn-primary">View Our Portfolio</a>
-        <a href="about.html" class="btn btn-secondary">Our Story</a>
-      </div>
-    </div>
-  </section>
-  
-  <section class="services-section">
-    <div class="container">
-      <h2>Our Core Expertise</h2>
-      <div class="services-grid">
-  
-  <div class="service-card">
-    <i class="fas fa-paint-roller"></i>
-    <h3>Signature Wall Textures</h3>
-    <p>We are experts in premium finishes including <strong>Royal Play designing</strong>, sophisticated <strong>VIP texture</strong> applications, and all types of home <strong>interior and exterior texture work</strong>.</p>
-  </div>
-  
-  <div class="service-card">
-    <i class="fas fa-magic"></i>
-    <h3>Decorative Wall Finishes</h3>
-    <p>Transform your walls with artistic flair. Our services include intricate <strong>Stencils</strong> and high-quality, modern <strong>Wallpaper designing</strong> for unique decorative accents.</p>
-  </div>
-  
-  <div class="service-card">
-    <i class="fas fa-house-chimney"></i>
-    <h3>Comprehensive Home Solutions</h3>
-    <p>We provide a holistic approach to home beautification, encompassing all elements of <strong>interior and exterior wall finishes</strong> for a seamless, stunning result.</p>
-  </div>
-  
-  <div class="service-card">
-    <i class="fas fa-map-marked-alt"></i>
-    <h3>Nationwide Project Coverage</h3>
-    <p>Our commitment to quality extends across borders. We execute projects <strong>All over India</strong>, bringing Gagana Texture and Design's expertise directly to your location.</p>
-  </div>
-  
+<main>
+  <section class="hero-slider" id="hero">
+  <div class="hero-slide" style="background-image:url('assets/slide1.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('assets/slide2.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('assets/slide3.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('assets/slide4.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('assets/slide5.jpg')"></div>
+</section>
+
+  <section class="train-section" style="height:240px; background:linear-gradient(135deg,#e8eef3,#cfd9df,#e2ebf0); border-radius:10px; overflow:hidden; position:relative;">
+
+  <div style="position:absolute; inset:0; background:linear-gradient(to bottom,#f8fbff 0%,#dde6ee 60%,#c4ccd4 100%);"></div>
+
+  <div class="fake-train-slider" style="position:absolute; bottom:20px; left:0; width:200%; height:160px; display:flex; gap:0; animation:trainMotion 25s linear infinite reverse;">
+
+  <img src="assets/design29.jpg" style="height:160px; width:33.33%; object-fit:cover;" />
+  <img src="assets/design6.jpg" style="height:160px; width:33.33%; object-fit:cover;" />
+  <img src="assets/design30.jpg" style="height:160px; width:33.33%; object-fit:cover;" />
+
+  <img src="assets/design29.jpg" style="height:160px; width:33.33%; object-fit:cover;" />
+  <img src="assets/design6.jpg" style="height:160px; width:33.33%; object-fit:cover;" />
+  <img src="assets/design30.jpg" style="height:160px; width:33.33%; object-fit:cover;" />
 </div>
-    </div>
-  </section>
-  
-  <section class="usp-section">
-    <div class="container usp-grid">
-        
-        <div class="usp-text">
-            <h2>Why Gagana Texture and Design?</h2>
-            <p>Our commitment goes beyond paint; it’s about a complete transformation experience. We guarantee quality, transparency, and timely project delivery.</p>
-            <ul>
-                <li><i class="fas fa-check-circle"></i> 10+ Years of Industry Experience</li>
-                <li><i class="fas fa-check-circle"></i> Free Site Consultation & Quote</li>
-                <li><i class="fas fa-check-circle"></i> 5-Year Service Warranty on Textures</li>
-                <li><i class="fas fa-check-circle"></i> Certified and Trained Application Teams</li>
-            </ul>
-            <a href="contact.html" class="btn btn-primary">Get a Free Quote</a>
-        </div>
-        
-        <div class="usp-image">
-            <img src="assets/hero12.jpeg" alt="Experienced applicator working on a wall texture" loading="lazy" />
-        </div>
-        
-    </div>
-  </section>
+<div class="btn-row" style="position:relative; z-index:10; margin-top:12px;">
+    <button class="btn" onclick="location.href='designs.html'" style="padding:10px 20px; border-radius:8px; font-size:16px; background:#0f2e26; color:white; border:none; cursor:pointer;">View More Designs</button>
+  </div>
 
-  <section class="home-cta-banner">
-    <div class="container cta-inner">
-        <h3>Ready to Transform Your Space?</h3>
-        <p>Book a free site inspection in Bangalore and let our experts guide you to the perfect finish.</p>
-        <a href="contact.html" class="btn btn-secondary">Book Free Site Visit</a>
-    </div>
-  </section>
-  
-<footer class="site-footer">
-    <div class="container footer-grid">
-      
-      <div class="footer-info">
-        <h3>Gagana Texture and Designers</h3>
-        <p>Transforming spaces with premium wall finishes, specialized textures, and innovative interior solutions.</p>
-        
-        <div class="social-links">
-          <a href="https://www.instagram.com/gagana_texture_designer_12?igsh=ODd3NWZzZ3hjM290" target="_blank" aria-label="Instagram Profile">
-            <i class="fab fa-instagram"></i>
-          </a>
-          
-          <a href="https://www.facebook.com/share/17GE1zkNHs/" target="_blank" aria-label="Facebook Page">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          
-          <a href="https://youtube.com/@gaganatexturedesigner?si=7quec5Vo4521_DOY" target="_blank" aria-label="YouTube Channel">
-            <i class="fab fa-youtube"></i>
-          </a>
-        </div>
-        <p class="copyright">
-    &copy; <span id="current-year"></span> Gagana Texture and Design. <br>
-    All rights reserved. | <a href="privacy.html" style="color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9em;">Privacy Policy</a>
-</p>
-      </div>
-      
-      <div class="footer-links">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="designs.html">Designs</a></li>
-          <li><a href="materials.html">Materials</a></li>
-          <li><a href="about.html">About Us</a></li>
-        </ul>
-      </div>
 
-      <div class="footer-contact">
-        <h4>Contact Us</h4>
-        <p><strong>Call:</strong> +91 8105939912</p>
-        <p><strong>Email:</strong> swamy10028@gmail.com</p>
-        <p><strong>Address:</strong>Kadirenahalli, Bengaluru, Karnataka, India</p>
-      </div>
+</section>
 
+<section class="train-section" style="height:240px; background:linear-gradient(135deg,#e8eef3,#cfd9df,#e2ebf0); border-radius:10px; overflow:hidden; position:relative;">
+
+  <div style="position:absolute; inset:0; background:linear-gradient(to bottom,#f8fbff 0%,#dde6ee 60%,#c4ccd4 100%);"></div>
+
+  <div class="fake-train-slider" style="position:absolute; bottom:20px; left:0; width:200%; height:160px; display:flex; gap:0; animation:trainMotion 25s linear infinite;">
+
+    <img src="assets/t1.png" style="height:160px; width:33.33%; object-fit:contain; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.2);" />
+    <img src="assets/m2.png" style="height:160px; width:33.33%; object-fit:contain; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.2);" />
+    <img src="assets/t3.png" style="height:160px; width:33.33%; object-fit:contain; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.2);" />
+
+    <img src="assets/t1.png" style="height:160px; width:33.33%; object-fit:contain; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.2);" />
+    <img src="assets/m2.png" style="height:160px; width:33.33%; object-fit:contain; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.2);" />
+    <img src="assets/t3.png" style="height:160px; width:33.33%; object-fit:contain; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.2);" />
+
+  </div>
+
+  <div class="btn-row" style="position:relative; z-index:10; margin-top:12px;">
+    <button class="btn" onclick="location.href='materials.html'" style="padding:10px 20px; border-radius:8px; font-size:16px; background:#0f2e26; color:white; border:none; cursor:pointer;">View More Materials & Tools</button>
+  </div>
+
+</section>
+
+
+
+<section class="testimonials" style="padding:60px 0; background:#f3f5f7; width:100%; text-align:center;">
+  <h2 style="font-size:32px; font-weight:700; margin-bottom:30px; color:#0f2e26;">What Our Clients Say</h2>
+
+  <div class="testimonial-card" style="max-width:420px; margin:0 auto; background:white; padding:25px; border-radius:16px; box-shadow:0 6px 20px rgba(0,0,0,0.12); position:relative;">
+
+    <img id="tImage" src="assets/r1.jpeg" style="width:120px; height:120px; object-fit:cover; border-radius:50%; margin-bottom:15px; box-shadow:0 4px 12px rgba(0,0,0,0.15);" />
+
+    <p id="tText" style="font-size:17px; color:#333; line-height:1.5; margin-bottom:10px; padding:0 10px;">
+      Excellent service! Beautiful designs and highly professional team.
+    </p>
+
+    <h3 id="tName" style="font-size:20px; font-weight:700; color:#0f2e26;">– Client 1</h3>
+  </div>
+</section>
+
+</main>
+<a href="tel:+918105939912" class="call-now-button">
+  <span class="icon">📞</span> CALL NOW
+</a>
+<footer style="background:#0f2e26; color:white; padding:50px 20px; margin-top:40px;">
+  <div style="max-width:1200px; margin:auto; display:flex; flex-wrap:wrap; gap:30px; justify-content:space-between;">
+
+    <div style="flex:1 1 250px; min-width:250px;">
+      <h2 style="font-size:26px; font-weight:700; margin-bottom:12px;">Gagana Texture & Designers</h2>
+      <p style="font-size:15px; line-height:1.5; color:#d7e2df;">
+        Transforming spaces with premium wall textures, interior finishes,<br/> and elegant design solutions.
+      </p>
     </div>
-  </footer>
+
+    <div style="flex:1 3 180px; min-width:10px;">
+  <h3 style="font-size:20px; font-weight:600; margin-bottom:12px;">Find us on Social Media</h3>
+
+  <div style="display:flex; gap:20px; align-items:center;">
+
+    <a href="#" style="color:#d7e2df; text-decoration:none; display:flex; align-items:center; gap:6px;">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="#FF0000">
+        <path d="M23.5 6.2s-.2-1.7-.8-2.5c-.7-.9-1.5-1-1.9-1.1C17.9 2.3 12 2.3 12 2.3h0s-5.9 0-8.8.3c-.4 0-1.2.2-1.9 1.1C.7 4.5.5 6.2.5 6.2S0 8.1 0 9.9v2.2c0 1.8.5 3.7.5 3.7s.2 1.7.8 2.5c.7.9 1.6 1 2 1.1 1.5.1 6.7.3 8.7.3s8.8-.1 8.8-.3c.4 0 1.2-.2 1.9-1.1.6-.8.8-2.5.8-2.5s.5-1.8.5-3.7V9.9c0-1.8-.5-3.7-.5-3.7zM9.7 14.8V8.7l6.1 3.1-6.1 3z"/>
+      </svg>
    
-  <script src="Script.js"></script>
+    </a>
+
+    <a href="#designs" style="color:#d7e2df; text-decoration:none; display:flex; align-items:center; gap:6px;">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="#E1306C">
+        <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3.5A4.5 4.5 0 1 0 12 17a4.5 4.5 0 0 0 0-9zm0 2A2.5 2.5 0 1 1 12 15a2.5 2.5 0 0 1 0-5zm4.8-3.6a1.1 1.1 0 1 0 0-2.2 1.1 1.1 0 0 0 0 2.2z"/>
+      </svg>
+  
+    </a>
+
+    <a href="https://www.facebook.com/share/17GE1zkNHs/" style="color:#d7e2df; text-decoration:none; display:flex; align-items:center; gap:6px;">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="#1877F2">
+        <path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-2.9h2.5V9.4c0-2.5 1.5-3.9 3.7-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.5v1.8H20l-.4 2.9h-3v7A10 10 0 0 0 22 12z"/>
+      </svg>
+
+    </a>
+
+  </div>
+</div>
+
+    <div style="flex:1 1 250px; min-width:250px;">
+      <h3 style="font-size:20px; font-weight:600; margin-bottom:12px;">Contact Us</h3>
+      <p style="margin:6px 0; color:#d7e2df;">📍 Bengaluru, Karnataka</p>
+      <p style="margin:6px 0; color:#d7e2df;">📞 +91 98765 43210</p>
+      <p style="margin:6px 0; color:#d7e2df;">✉️ swamy10028@gmail.com</p>
+    </div>
+
+  </div>
+
+  <hr style="border:0; border-top:1px solid rgba(255,255,255,0.15); margin:30px 0;" />
+
+  <p style="text-align:center; font-size:14px; color:#cbd6d2;">
+    © 2025 Gagana Texture & Designers. All Rights Reserved.
+  </p>
+</footer>
+
+
+<script>
+
+  let currentSlide = 0;
+  const slides = document.querySelectorAll(".hero-slide");
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === index);
+    });
+  }
+
+  setInterval(() => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }, 4000); // 4 seconds per slide
+
+  // Show first slide initially
+  showSlide(currentSlide);
+
+
+// mobile menu
+const menuBtn = document.getElementById('menu-btn');
+const nav = document.querySelector('header nav');
+menuBtn && menuBtn.addEventListener('click',()=>nav.classList.toggle('show'));
+// Testimonials fade change
+const testimonials=[
+  {img:"assets/r1.jpeg",text:"Awesome work done by team very good and satisfied....",name:"Salman Khan"},
+  {img:"assets/r2.jpeg",text:"Very good and satisfied with well working skills persons...",name:"Shabir Pasha"},
+  {img:"assets/r3.jpeg",text:"Good work and services also super and  any texture work content",name:"Vijay"},
+  {img:"assets/r4.jpeg",text:"Creative team with fantastic customer support.",name:"Chandan Venki"},
+  {img:"assets/r5.jpeg",text:"Texture quality is premium and durable.",name:"Ganigara kopalu G"}
+];
+let ti=0;
+setInterval(()=>{
+  ti=(ti+1)%testimonials.length;
+  document.getElementById('tImage').style.opacity=0;
+  document.getElementById('tText').style.opacity=0;
+  document.getElementById('tName').style.opacity=0;
+  setTimeout(()=>{
+    document.getElementById('tImage').src=testimonials[ti].img;
+    document.getElementById('tText').innerText=testimonials[ti].text;
+    document.getElementById('tName').innerText=testimonials[ti].name;
+    document.getElementById('tImage').style.opacity=1;
+    document.getElementById('tText').style.opacity=1;
+    document.getElementById('tName').style.opacity=1;
+  },300);
+},3000);
+// Mobile tap hover for footer links
+const footerLinks = document.querySelectorAll("footer a");
+footerLinks.forEach(link => {
+  link.addEventListener("touchstart", () => {
+    link.classList.add("mobile-hover");
+    setTimeout(() => link.classList.remove("mobile-hover"), 300);
+  });
+});
+
+// NEW SCRIPT: Header Brand Rotation (Logo <-> Text)
+const brandElement = document.getElementById('rotating-brand');
+const textContent = 'Gagana Texture & Designers';
+// Logo content, styled to fit in the header
+const logoContent = '<img src="assets/logo.png" style="height:44px; width:44px; vertical-align: middle; margin-top: -4px; object-fit: contain;" alt="Gagana Logo" />';
+
+let isLogoShowing = false; // Initial state is Text (as set in HTML)
+
+function rotateBrand() {
+    // 1. Fade Out
+    brandElement.style.opacity = '0';
+
+    setTimeout(() => {
+        // 2. Swap Content
+        if (isLogoShowing) {
+            // Switch to Text
+            brandElement.innerHTML = textContent;
+        } else {
+            // Switch to Logo
+            brandElement.innerHTML = logoContent;
+        }
+
+        // Toggle state
+        isLogoShowing = !isLogoShowing;
+
+        // 3. Fade In
+        brandElement.style.opacity = '1';
+    }, 500); // Wait for 0.5s fade-out (must match CSS transition time)
+}
+
+// Initial state is Text (shows for 5 seconds)
+// Start the continuous switching after the first 5 seconds
+setTimeout(function() {
+    rotateBrand(); // First transition (Text -> Logo)
+    // Then set the interval for every 5 seconds (5000ms)
+    setInterval(rotateBrand, 5000);
+}, 5000);
+</script>
+
 </body>
 </html>
-

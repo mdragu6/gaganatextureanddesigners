@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gagana Texture and Design — Our Materials & Tools</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    crossorigin="anonymous" />
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+    body{background:#f4f6f7;color:#222;}
+    .container{width:90%;max-width:1200px;margin:auto;}
+
+    /* ----- Header Styles (Unified) ----- */
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 64px; 
+        background: #0f2e26; /* Dark background */
+        color: #fff;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        z-index: 1000;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    }
+    .header-inner{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        width:100%;
+        max-width: 1200px; /* To constrain content */
+        margin: auto; /* To center content */
+    }
+
+    /* Brand Rotation Styling */
+    .brand-container {
+        font-weight: 700;
+        transition: opacity 0.5s ease-in-out; /* For smooth fade effect */
+        display: flex; 
+        align-items: center;
+        font-size: 16px; /* Text size for the brand name */
+    }
+
+    .nav ul {
+        display: flex; /* Desktop layout */
+        gap: 18px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav a {
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
+        padding: 10px 18px;
+        border-radius: 6px;
+        transition: 0.25s ease;
+    }
+
+    /* Active Link Style */
+    .nav a.active-link {
+        background: rgba(255, 255, 255, 0.12);
+        color: #b6fff2; /* Highlight color */
+    }
+
+    .nav a:not(.active-link):hover {
+        background: rgba(255, 255, 255, 0.12);
+    }
+
+    .menu-toggle {
+        display: none;
+        color: white;
+        font-size: 30px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    @media(min-width:769px) { 
+        .nav {
+            display: block;
+        }
+    }
+
+
+    /* MOBILE NAV STYLES (Glassmorphism + Fixed Margins/Gaps) */
+    @media(max-width:768px) {
+        .menu-toggle {
+            display: block;
+        }
+        
+        .nav {
+            display: none;
+            position: absolute;
+            top: 64px; /* Matches header height */
+            left: 0;
+            width: 100%;
+        }
+
+        .nav.show {
+            display: block !important; /* Container */
+            /* Glassmorphism/Positioning */
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(14px) saturate(180%);
+            -webkit-backdrop-filter: blur(14px) saturate(180%);
+            padding: 22px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            z-index: 9999;
+        } 
+
+        /* Style the UL to be the column flex container */
+        .nav.show ul {
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* Correct vertical gap between list items */
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        } 
+
+        /* Ensure LI elements take full width and have no extra space */
+        .nav.show ul li {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Style the A links */
+        .nav.show a{
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.12);
+            font-size: 17px;
+            font-weight: 600;
+            color: #fff;
+            transition: 0.25s ease;
+        }
+        
+        /* Hover style for links */
+        .nav.show a:hover {
+            background: rgba(255, 255, 255, 0.25) !important;
+            transform: translateX(6px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+    }
+
+    /* ------------------------- */
+    /* CONTENT SECTIONS          */
+    /* ------------------------- */
+    .materials-hero {
+      /* Updated padding for fixed header clearance */
+      padding: 140px 0 70px;
+      background: linear-gradient(to right, #00836e, #00a88f);
+      color: white;
+      text-align: center;
+      /* removed border-radius for cleaner look */
+    }
+
+    .materials-hero h1{font-size:40px;font-weight:700;margin-bottom:10px;} 
+    .materials-hero p{font-size:18px;}
+
+
+    .materials-gallery h2,
+    .materials-tools h2 {
+      text-align: center;
+      font-size: 32px;
+      margin-top: 50px;
+      margin-bottom: 20px;
+      font-weight: 700;
+      color: #0f2e26; /* Adjusted text color for consistency */
+    }
+
+    .materials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+      padding: 20px 0 40px;
+    }
+
+    .material-card {
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      transition: 0.3s ease;
+    }
+
+    .material-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+    }
+
+    .material-card img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      background: #f2f2f2;
+      padding: 8px;
+    }
+
+
+    .material-card-info {
+      padding: 18px;
+    }
+
+    .material-card-info h3 {
+      margin: 0;
+      font-weight: 700;
+      color: #0f2e26; /* Adjusted text color for consistency */
+    }
+
+    .material-card-info p {
+      font-size: 14px;
+      margin: 8px 0 12px;
+      color: #444;
+    }
+
+    .btn-secondary {
+      background: #0f2e26; /* Adjusted color for consistency */
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .btn-secondary:hover {
+      background: #12352c;
+    }
+
+    /* ------------------------- */
+    /* FOOTER (Unified)          */
+    /* ------------------------- */
+    .site-footer{background:#0f2e26;color:white;padding:60px 20px;margin-top:60px;} 
+    .footer-grid{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;} 
+    .footer-info h3{font-size:24px;margin-bottom:10px;} 
+    .footer-info p{color:#d7e2df;line-height:1.6;} 
+    .social-links a{color:white;margin-right:14px;font-size:22px;transition:.3s;} 
+    .social-links a:hover{color:#b6fff2;} 
+    .footer-links ul{list-style:none;} 
+    .footer-links a{color:#d7e2df;text-decoration:none;transition:.3s;} 
+    .footer-links a:hover{color:white;padding-left:6px;} 
+    .footer-contact p{color:#d7e2df;margin:6px 0;} 
+    @media(max-width:768px){.footer-grid{flex-direction:column;}}
+
+    /* --- Global Styles: Blue Gradient Button (Unified) --- */
+    .call-now-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      font-weight: bold;
+      color: white;
+      border-radius: 50px;
+      padding: 15px 25px;
+      font-size: 20px;
+      background: linear-gradient(135deg, #2196F3, #0D47A1); 
+      animation: pulse-zoom 1.5s infinite alternate;
+    }
+    @media (max-width: 600px) {
+      .call-now-button {
+        padding: 10px 18px; 
+        font-size: 16px; 
+        bottom: 15px;
+        right: 15px;
+        animation-duration: 1.8s;
+      }
+    }
+    .call-now-button .icon {
+      margin-right: 10px;
+    }
+    @keyframes pulse-zoom {
+      0% { 
+        transform: scale(1); 
+        box-shadow: 0 4px 15px rgba(33, 150, 243, 0.6); 
+      }
+      100% { 
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(33, 150, 243, 0.9), 0 0 40px rgba(33, 150, 243, 0.7); 
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+    <div class="container header-inner">
+      <div class="brand-container" id="rotating-brand">
+        <img src="assets/logo.jpeg" style="height:44px; width:44px; vertical-align: middle; margin-top: -4px; object-fit: contain;" alt="Gagana Logo" />
+      </div>
+      
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="designs.html">Designs</a></li>
+          <li><a href="materials.html" class="active-link">Materials</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle">☰</button>
+    </div>
+  </header>
+
+  <main class="page-content">
+
+    <section class="materials-hero">
+      <div class="container">
+        <h1>The Quality Behind Every Finish</h1>
+        <p>
+          We use only the highest-grade, eco-friendly, and durable materials,
+          combined with professional tools, to ensure stunning, long-lasting
+          results.
+        </p>
+      </div>
+    </section>
+
+    <section class="materials-gallery container">
+      <h2>Premium Texture Materials</h2>
+
+      <div class="materials-grid">
+
+        <div class="material-card">
+          <img src="assets/m2.png" alt="Birla White Texture Material" />
+          <div class="material-card-info">
+            <h3>Birla Texture Material</h3>
+            <p>
+              The whitest white cement base offering a bright and flawless
+              foundation for rich textures.
+            </p>
+            <a href="contact.html" class="btn-secondary">Inquire</a>
+          </div>
+        </div>
+
+        <div class="material-card">
+          <img src="assets/m3.png" alt="A1 Texture Material" />
+          <div class="material-card-info">
+            <h3>A1 Texture Material</h3>
+            <p>
+              High-adhesion, crack-resistant compound perfect for durable
+              interior and exterior designs.
+            </p>
+            <a href="contact.html" class="btn-secondary">Inquire</a>
+          </div>
+        </div>
+
+        <div class="material-card">
+          <img src="assets/m4.png" alt="Lenova Texture Material" />
+          <div class="material-card-info">
+            <h3>Lenova Texture Material</h3>
+            <p>
+              Specialized compound ideal for roller coat and bubble-spray texture
+              patterns.
+            </p>
+            <a href="contact.html" class="btn-secondary">Inquire</a>
+          </div>
+        </div>
+
+
+
+      </div>
+    </section>
+
+    <section class="materials-tools container">
+      <h2>Professional Tools</h2>
+
+      <div class="materials-grid">
+
+        
+        <div class="material-card">
+          <img src="assets/t2.png" alt="Gurmal" />
+          <div class="material-card-info">
+            <h3>Stools</h3>
+            <p>Provides a safe platform for the worker to reach and apply texture materials</p>
+          </div>
+        </div>
+
+        <div class="material-card">
+          <img src="assets/t1.png" alt="Air Compressor" />
+          <div class="material-card-info">
+            <h3>Air Compressor</h3>
+            <p>Powers spray guns for fast and uniform application.</p>
+          </div>
+        </div>
+
+        <div class="material-card">
+          <img src="assets/t3.png" alt="Mixing Machine" />
+          <div class="material-card-info">
+            <h3>Mixing Machine</h3>
+            <p>Makes texture compounds smooth, consistent, and clump-free.</p>
+          </div>
+        </div>
+<div class="material-card">
+          <img src="assets/t4.png" alt="Mixing Machine" />
+          <div class="material-card-info">
+            <h3>Roller</h3>
+            <p>Used with specialized sleeves to create various distinct patterns</p>
+          </div>
+        </div>
+<div class="material-card">
+          <img src="assets/t5.png" alt="Mixing Machine" />
+          <div class="material-card-info">
+            <h3>Spray Gun</h3>
+            <p>used for the rapid and consistent application of texture material.</p>
+          </div>
+        </div>
+<div class="material-card">
+          <img src="assets/t6.png" alt="Mixing Machine" />
+          <div class="material-card-info">
+            <h3>Trowel</h3>
+            <p>steel hand tool used for various essential finishing steps in texture</p>
+          </div>
+        </div>
+<div class="material-card">
+          <img src="assets/t7.png" alt="Mixing Machine" />
+          <div class="material-card-info">
+            <h3>Gurmal</h3>
+            <p>Essential for leveling surfaces before texture work.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+<a href="tel:+1234567890" class="call-now-button">
+  <span class="icon">🛒</span> ORDER NOW
+</a>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+
+      <div class="footer-info">
+        <h3>Gagana Texture and Designers</h3>
+        <p>Premium wall finishes, textures, and innovative interior solutions.</p>
+
+        <div class="social-links">
+          <a href="https://www.instagram.com/gagana_texture_designer_12?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/share/17GE1zkNHs/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://youtu.be/cftxAgXMSeA?si=Ia8P9AbbQHSFblgl" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+
+        <p style="margin-top: 15px;">&copy; <span id="current-year"></span> All Rights Reserved.</p>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="designs.html">Designs</a></li>
+          <li><a href="materials.html">Materials</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <p><strong>Call:</strong> +91 8105939912</p>
+        <p><strong>Email:</strong> swamy10028@gmail.com</p>
+        <p><strong>Address:</strong> Bengaluru, Karnataka</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+
+    // Mobile Menu Toggle
+    const menuBtn = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+    menuBtn.addEventListener('click', () => nav.classList.toggle('show'));
+
+    // Header Brand Rotation (Logo <-> Text)
+    const brandElement = document.getElementById('rotating-brand');
+    const textContent = 'Gagana Texture & Designers';
+    const logoContent = '<img src="assets/logo.jpeg" style="height:44px; width:44px; vertical-align: middle; margin-top: -4px; object-fit: contain;" alt="Gagana Logo" />';
+
+    let isLogoShowing = true;
+
+    function rotateBrand() {
+      brandElement.style.opacity = '0';
+      setTimeout(() => {
+        if (isLogoShowing) {
+          brandElement.innerHTML = textContent;
+        } else {
+          brandElement.innerHTML = logoContent;
+        }
+        isLogoShowing = !isLogoShowing;
+        brandElement.style.opacity = '1';
+      }, 500);
+    }
+
+    setTimeout(function() {
+      rotateBrand();
+      setInterval(rotateBrand, 5000);
+    }, 5000);
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gagana Texture & Designers — Designs</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+body{background:#f4f6f7;color:#222;}
+.container{width:90%;max-width:1200px;margin:auto;}
+
+/* ----- Header Styles (Unified) ----- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 64px; 
+    background: #0f2e26; /* Dark background */
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1000;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+}
+.header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    width:100%;
+    max-width: 1200px; /* To constrain content */
+    margin: auto; /* To center content */
+}
+
+/* Brand Rotation Styling */
+.brand-container {
+    font-weight: 700;
+    transition: opacity 0.5s ease-in-out; /* For smooth fade effect */
+    display: flex; 
+    align-items: center;
+    font-size: 16px; /* Text size for the brand name */
+}
+
+.nav ul {
+    display: flex; /* Desktop layout */
+    gap: 18px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav a {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    transition: 0.25s ease;
+}
+
+.nav a:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.menu-toggle {
+    display: none;
+    color: white;
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+@media(min-width:769px) { 
+    .nav {
+        display: block;
+    }
+}
+
+
+/* MOBILE NAV STYLES (Fixed Margins/Gaps) */
+@media(max-width:768px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    .nav {
+        display: none;
+        position: absolute;
+        top: 64px; /* Matches header height */
+        left: 0;
+        width: 100%;
+    }
+
+    .nav.show {
+        display: block !important; /* Container */
+        /* Glassmorphism/Positioning */
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(14px) saturate(180%);
+        -webkit-backdrop-filter: blur(14px) saturate(180%);
+        padding: 22px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        z-index: 9999;
+    } 
+
+    /* Style the UL to be the column flex container */
+    .nav.show ul {
+        display: flex;
+        flex-direction: column;
+        gap: 10px; /* Correct vertical gap between list items */
+        list-style: none;
+        padding: 0;
+        margin: 0px;
+        width: 100%;
+    } 
+
+    /* Ensure LI elements take full width and have no extra space */
+    .nav.show ul li {
+        width: 100%;
+        margin: 10px;
+        padding: 0;
+    }
+
+    /* Style the A links */
+    .nav.show a{
+        width: 100%;
+        padding: 14px 18px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.12);
+        font-size: 17px;
+        font-weight: 600;
+        color: #fff;
+        transition: 0.25s ease;
+    }
+    
+    /* Hover style for links */
+    .nav.show a:hover {
+        background: rgba(255, 255, 255, 0.25) !important;
+        transform: translateX(6px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    .header-cta{display:none;} 
+}
+
+/* ----- Hero Section ----- */
+.designs-hero{padding:140px 0 70px;background:linear-gradient(135deg,#dfe7ec,#c4ced4);text-align:center;} 
+.designs-hero h1{font-size:40px;font-weight:700;margin-bottom:10px;color:#0f2e26;} 
+.designs-hero p{font-size:18px;color:#333;}
+
+/* ----- Gallery ----- */
+.design-gallery h2{text-align:center;font-size:28px;margin:40px 0 25px;font-weight:700;color:#0f2e26;} 
+.design-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;} 
+.design-card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,0.15);transition:.35s;cursor:pointer;} 
+.design-card img{width:100%;height:230px;object-fit:cover;} 
+.design-card:hover{transform:translateY(-8px);box-shadow:0 12px 25px rgba(0,0,0,0.25);} 
+.design-card-info{text-align:center;padding:14px 10px;font-weight:600;color:#0f2e26;} 
+.hidden-design{display:none;} 
+.btn-secondary{padding:12px 22px;background:#0f2e26;color:white;border:none;border-radius:8px;font-size:17px;font-weight:600;cursor:pointer;transition:.25s;} 
+.btn-secondary:hover{background:#12352c;transform:scale(1.04);} 
+
+/* ----- Modern Footer ----- */
+.site-footer{background:#0f2e26;color:white;padding:60px 20px;margin-top:60px;} 
+.footer-grid{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;} 
+.footer-info h3{font-size:24px;margin-bottom:10px;} 
+.footer-info p{color:#d7e2df;line-height:1.6;} 
+.social-links a{color:white;margin-right:14px;font-size:22px;transition:.3s;} 
+.social-links a:hover{color:#b6fff2;} 
+.footer-links ul{list-style:none;} 
+.footer-links a{color:#d7e2df;text-decoration:none;transition:.3s;} 
+.footer-links a:hover{color:white;padding-left:6px;} 
+.footer-contact p{color:#d7e2df;margin:6px 0;} 
+@media(max-width:768px){.footer-grid{flex-direction:column;}}
+/* --- Global Styles: Blue Gradient Background --- */
+.call-now-button {
+  /* Fixed Position and Base Styling */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  border-radius: 50px;
+  
+  /* Set base size for desktop/larger screens */
+  padding: 15px 25px;
+  font-size: 20px;
+
+  /* **NEW:** Blue Gradient Background */
+  background: linear-gradient(135deg, #2196F3, #0D47A1); /* Bright to deep blue gradient */
+  
+  /* Apply the Animation */
+  animation: pulse-zoom 1.5s infinite alternate;
+}
+
+/* --- Mobile Specific Styles (Media Query) --- */
+@media (max-width: 600px) {
+  .call-now-button {
+    /* Reduced size for mobile screens */
+    padding: 10px 18px; 
+    font-size: 16px; 
+    bottom: 15px;
+    right: 15px;
+    animation-duration: 1.8s;
+  }
+}
+
+/* --- Icon Spacing --- */
+.call-now-button .icon {
+  margin-right: 10px;
+}
+
+/* --- The Animation Definition (@keyframes) --- */
+@keyframes pulse-zoom {
+  0% { 
+    transform: scale(1); 
+    /* Shadow glow matches the lighter blue */
+    box-shadow: 0 4px 15px rgba(33, 150, 243, 0.6); 
+  }
+  
+  100% { 
+    transform: scale(1.05); /* Zooming effect */
+    /* Stronger, more intense blue shadow glow */
+    box-shadow: 0 0 20px rgba(33, 150, 243, 0.9), 0 0 40px rgba(33, 150, 243, 0.7); 
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="brand-container" id="rotating-brand">
+      <img src="assets/logo.jpeg" style="height:44px; width:44px; vertical-align: middle; margin-top: -4px; object-fit: contain;" alt="Gagana Logo" />
+    </div>
+    
+    <nav class="nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="designs.html">Designs</a></li>
+        <li><a href="materials.html">Materials</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+    <button class="menu-toggle">☰</button>
+  </div>
+</header>
+
+<main class="page-content">
+  <section class="designs-hero">
+    <div class="container">
+      <h1>Explore Our Texture & Exterior Designs</h1>
+      <p>Discover our premium wall finishes, textures, and modern interior concepts.</p>
+    </div>
+  </section>
+
+  <section class="design-gallery container">
+    <h2>Our Featured Portfolio</h2>
+    <div class="design-grid" id="designGrid"></div>
+  </section>
+
+  <div style="text-align:center;margin:40px 0;">
+    <button id="loadMoreBtn" class="btn-secondary">Load More Designs</button>
+  </div>
+</main>
+<a href="tel:+918105939912" class="call-now-button">
+  <span class="icon">📞</span> CALL NOW
+</a>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-info">
+      <h3>Gagana Texture & Designers</h3>
+      <p>Transforming spaces with premium wall finishes and innovative interior solutions.</p>
+      <div class="social-links">
+        <a href="https://www.instagram.com/gagana_texture_designer_12?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/share/17GE1zkNHs/"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://youtu.be/cftxAgXMSeA?si=Ia8P9AbbQHSFblgl"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="designs.html">Designs</a></li>
+        <li><a href="materials.html">Materials</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Contact Us</h4>
+      <p><strong>Call:</strong> +91 8105939912</p>
+      <p><strong>Email:</strong> swamy10028@gmail.com</p>
+      <p><strong>Address:</strong> Bengaluru, Karnataka</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Mobile Menu Toggle
+const menuBtn=document.querySelector('.menu-toggle');
+const nav=document.querySelector('.nav');
+menuBtn.addEventListener('click',()=>nav.classList.toggle('show'));
+
+// NEW SCRIPT: Header Brand Rotation (Logo <-> Text)
+const brandElement = document.getElementById('rotating-brand');
+const textContent = 'Gagana Texture & Designers';
+// Logo content, styled to fit in the header
+const logoContent = '<img src="assets/logo.jpeg" style="height:44px; width:44px; vertical-align: middle; margin-top: -4px; object-fit: contain;" alt="Gagana Logo" />';
+
+let isLogoShowing = true; // Initial state is Logo (as set in HTML)
+
+function rotateBrand() {
+    // 1. Fade Out
+    brandElement.style.opacity = '0';
+
+    setTimeout(() => {
+        // 2. Swap Content
+        if (isLogoShowing) {
+            // Switch to Text
+            brandElement.innerHTML = textContent;
+        } else {
+            // Switch to Logo
+            brandElement.innerHTML = logoContent;
+        }
+
+        // Toggle state
+        isLogoShowing = !isLogoShowing;
+
+        // 3. Fade In
+        brandElement.style.opacity = '1';
+    }, 500); // Wait for 0.5s fade-out (must match CSS transition time)
+}
+
+// Initial state is Logo (shows for 5 seconds)
+// Start the continuous switching after the first 5 seconds
+setTimeout(function() {
+    rotateBrand(); // First transition (Logo -> Text)
+    // Then set the interval for every 5 seconds (5000ms)
+    setInterval(rotateBrand, 5000);
+}, 5000);
+
+
+// Dynamic Load Designs
+const designGrid=document.getElementById('designGrid');
+let count=0;
+const IMAGES=30;
+
+function loadDesigns(num){
+ for(let i=0;i<num && count<IMAGES;i++){
+   count++;
+   const card=document.createElement('div');
+   card.className='design-card';
+   card.innerHTML=`
+     <img src="assets/design${count}.jpg" />
+     <div class="design-card-info">Design ${count}</div>
+   `;
+   designGrid.appendChild(card);
+ }
+}
+
+loadDesigns(12);
+
+document.getElementById('loadMoreBtn').onclick=()=>{
+ loadDesigns(12);
+ if(count>=IMAGES) document.getElementById('loadMoreBtn').style.display='none';
+};
+</script>
+
+</body
+</html>
